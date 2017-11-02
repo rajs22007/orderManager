@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="120 seconds" debug="false">
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/facilitator-config.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${catalina.base}/logs/facilitator-config-%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxHistory>90</maxHistory>
+			<maxFileSize>10MB</maxFileSize>
+			<totalSizeCap>250MB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date %level [%thread] %logger{60} %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="TENANT_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/tenant-data.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${catalina.base}/logs/tenant-data-%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxHistory>90</maxHistory>
+			<maxFileSize>10MB</maxFileSize>
+			<totalSizeCap>250MB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date %level [%thread] %logger{60} %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date %level [%thread] %logger{60} %msg%n</Pattern>
+		</layout>
+	</appender>
+
+
+	<logger name="org.hibernate.type" level="ALL" />
+	<logger name="org.hibernate" level="DEBUG" />
+
+	<logger name="com.mp" level="INFO" />
+	<logger name="org.springframework.web.client.RestTemplate"
+		level="INFO" />
+
+
+	<logger name="tenantData" level="DEBUG" additivity="false">
+		<appender-ref ref="TENANT_FILE" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+
+	<root level="ERROR">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>
