@@ -75,3 +75,14 @@ Order Search:
   
   Response if invalid id:
   {"orderEntity":null,"message":"Order not found."}
+
+02 Nov 2017
+===========
+
+Assigned Task Search:
+---------------------
+curl -X GET http://localhost:8080/orderman/tasks/assigned -H 'authorization: Basic YWRtaW46YWRtaW4=' -H 'Accept: application/json' -H "uid: ashish"
+
+Unassigned Task Search:
+-----------------------
+curl -X GET http://localhost:8080/orderman/tasks/unassigned -H 'authorization: Basic YWRtaW46YWRtaW4=' -H 'Accept: application/json' -H "uid: ashish"
