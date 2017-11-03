@@ -44,7 +44,7 @@ database:
     dataSourceProperties:
         url: jdbc:mysql://localhost:3306/sr_data
         user: root
-        password: root
+        password: mydb
         prepStmtCacheSize: 256
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
@@ -68,7 +68,7 @@ database2:
     dataSourceProperties:
         url: jdbc:mysql://localhost:3306/sr_data
         user: root
-        password: root
+        password: mydb
         prepStmtCacheSize: 256
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true

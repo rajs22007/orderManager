@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
 	ProcessEngine processEngine = processEngineConfiguration
 			.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
 			.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/sr_data?characterEncoding=UTF-8")
-			.setJdbcDriver("com.mysql.jdbc.Driver").setJdbcUsername("root").setJdbcPassword("root")
+			.setJdbcDriver("com.mysql.jdbc.Driver").setJdbcUsername("root").setJdbcPassword("mydb")
 			.buildProcessEngine();
 
 	// @Autowired
